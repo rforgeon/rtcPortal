@@ -1,0 +1,29 @@
+
+<h1> Dashboard </h1>
+
+<h2>Your ID: <%=current_user.id%></h2>
+
+<h3>Setup</h3>
+
+<h4>Place the following code before the &lt;/head&gt; tag of each page you want to contain video chat</h4>
+
+<div class='code' style='background-color:grey'>
+  <pre>
+    <code style='color:white'>
+      <!-- <link rel="stylesheet" href="css/myscript.css">
+      <script src="https://use.fontawesome.com/e7bcebef54.js"></script>
+      <script src="https://simplewebrtc.com/latest-v2.js"></script>
+      <script type="text/javascript" src="js/myscriptEasyRTC.js"></script>
+      <script type="text/javascript">
+         SHOPYPARTY.init(["ID", 1]);
+      </script> -->
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;https://s3-us-west-1.amazonaws.com/browserparty/startparty.css&quot;&gt;
+      &lt;script src=&quot;https://use.fontawesome.com/e7bcebef54.js&quot;&gt;&lt;/script&gt;
+      &lt;script src=&quot;https://simplewebrtc.com/latest-v2.js&quot;&gt;&lt;/script&gt;
+      &lt;script type=&quot;text/javascript&quot; src=&quot;https://s3-us-west-1.amazonaws.com/browserparty/startparty.js&quot;&gt;
+      &lt;/script&gt; &lt;script type=&quot;text/javascript&quot;&gt;
+        SHOPYPARTY.init([&quot;ID&quot;, <span style="color:lightgreen">"<%=current_user.id%>"</span>]);
+      &lt;/script&gt;
+    </code>
+  </pre>
+<div>

@@ -1,0 +1,33 @@
+<div class="plan-container">
+  <ul>
+    <% @plans.each do |plan| %>
+      <li class="plan">
+        <div class="header">
+          <%= plan[:name] %>
+        </div>
+        <div class="price">
+          <%=number_to_currency((plan[:amount].to_f)/100)%>
+        </div>
+        <%if user_signed_in? %>
+
+
+          <%= form_tag('/subscription_checkout', {method: :post, plan: plan}) do %>
+            <input name="plan_id" type="hidden" value="<%= plan[:id] %>"></input>
+            <script class="stripe-button"
+                    src="https://checkout.stripe.com/checkout.js"
+                    data-amount="<%= (plan[:amount]) %>"
+                    data-currency="<%= plan[:currency] %>"
+                    data-email=<%=current_user.email%>
+                    data-image=""
+                    data-key=<%=Figaro.env.STRIPE_PUBLISHABLE_KEY%>>
+            </script>
+          <%end%>
+        <%else%>
+
+          <%= link_to('Purchase', new_user_session_path)  %>
+
+      <%end%>
+      </li>
+    <% end %>
+  </ul>
+</div>

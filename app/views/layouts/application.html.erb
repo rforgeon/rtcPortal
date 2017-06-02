@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RtcPortal</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/browserparty/startparty.css">
+    <script src="https://use.fontawesome.com/e7bcebef54.js"></script>
+    <script src="https://simplewebrtc.com/latest-v2.js"></script>
+    <script type="text/javascript" src="https://s3-us-west-1.amazonaws.com/browserparty/startparty.js">
+    </script> <script type="text/javascript">
+      SHOPYPARTY.init(["ID", "14d597cc-d5ed-4c58-9fd5-e92d4849fd84"]);
+    </script>
+
+  </head>
+
+  <body>
+    <nav>
+      <p class="navbar-text pull-right">
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      </p>
+    </nav>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
