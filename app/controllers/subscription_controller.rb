@@ -19,13 +19,13 @@ class SubscriptionController < ApplicationController
             :source => params[:stripeToken],
             :email => current_user.email
           )
-          
+
     #TODO: add Stripe customer id to user in my database (https://stripe.com/docs/subscriptions/quickstart)
 
     # Save this in your DB and associate with the user;s email
     stripe_subscription = customer.subscriptions.create(:plan => plan.id)
 
-    flash[:notice] = "Successfully Subscibed!"
+    flash[:notice] = "Successfully Subscribed!"
     redirect_to '/pricing'
   end
 

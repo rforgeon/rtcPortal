@@ -1,33 +1,47 @@
 <div class="plan-container">
-  <ul>
+  <div class="column column-offset-1">
     <% @plans.each do |plan| %>
-      <li class="plan">
+      <div class="price-card">
         <div class="header">
-          <%= plan[:name] %>
+          <!-- <%= plan[:name] %> -->
+          Starter Plan
+        </div>
+        <div class="description">
+          <ul>
+            <li>Video chat system on your site.</li>
+            <br>
+            <li>Choose what page to allow video chat or allow them all.</li>
+            <br>
+            <li>Customers can share the page they're viewing to invite a friend to chat.</li>
+            <br>
+            <li>Up to five people in a chat room at once.</li>
+            <br>
+            <li>Copy and paste pre-generated code for simple setup.</li>
+          </ul>
         </div>
         <div class="price">
-          <%=number_to_currency((plan[:amount].to_f)/100)%>
+          <%=number_to_currency((plan[:amount].to_f)/100)%> <span class="monthly">/month</span>
         </div>
-        <%if user_signed_in? %>
 
+        <div class="purchase-btn">
+          <%if user_signed_in? %>
 
-          <%= form_tag('/subscription_checkout', {method: :post, plan: plan}) do %>
-            <input name="plan_id" type="hidden" value="<%= plan[:id] %>"></input>
-            <script class="stripe-button"
-                    src="https://checkout.stripe.com/checkout.js"
-                    data-amount="<%= (plan[:amount]) %>"
-                    data-currency="<%= plan[:currency] %>"
-                    data-email=<%=current_user.email%>
-                    data-image=""
-                    data-key=<%=Figaro.env.STRIPE_PUBLISHABLE_KEY%>>
-            </script>
-          <%end%>
-        <%else%>
-
-          <%= link_to('Purchase', new_user_session_path)  %>
-
-      <%end%>
-      </li>
+            <%= form_tag('/subscription_checkout', {method: :post, plan: plan}) do %>
+              <input name="plan_id" type="hidden" value="<%= plan[:id] %>"></input>
+              <script class="stripe-button"
+                      src="https://checkout.stripe.com/checkout.js"
+                      data-amount="<%= (plan[:amount]) %>"
+                      data-currency="<%= plan[:currency] %>"
+                      data-email=<%=current_user.email%>
+                      data-image=""
+                      data-key=<%=Figaro.env.STRIPE_PUBLISHABLE_KEY%>>
+              </script>
+            <%end%>
+          <%else%>
+              <a class="purchase-not-signed-in" href="/users/sign_in">Purchase</a>
+        <%end%>
+      </div>
+    </div>
     <% end %>
-  </ul>
+  </div>
 </div>

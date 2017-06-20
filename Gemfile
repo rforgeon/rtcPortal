@@ -44,6 +44,9 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 #safe keeping
 gem "figaro"
 
+#admin dashboard
+gem 'activeadmin'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

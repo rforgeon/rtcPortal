@@ -1,0 +1,194 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+h1{
+  color:grey;
+}
+
+.center{
+  margin: auto;
+  width: 100%;
+  padding-top: 5vw;
+}
+
+.welcome-text{
+  font-size:50px;
+  text-align: center;
+  //font-family: 'Open Sans', sans-serif;
+  color: grey;
+}
+
+.selling-points{
+  //background-color: #124E78;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+
+}
+.point{
+  //background-color: #586994;
+  padding: 50px;
+}
+.main-point{
+  color: black;
+  font-size: 25px;
+}
+.sub-point{
+  color: grey;
+}
+
+.add-btn{
+  background: orange;
+  color:white;
+  width: 37%;
+  margin-left: 31.5%;
+  -webkit-box-shadow: 0px 2px 2px -2px #545454;
+  -moz-box-shadow: 0px 2px 2px -2px #545454;
+  box-shadow: 0px 2px 2px -2px #545454;
+  border-radius: 2px;
+  z-index: 200;
+  position: relative;
+  text-decoration: none;
+}
+.add-btn:hover{
+  background: orange;
+  color:white;
+  width: 37%;
+  margin-left: 31.5%;
+  -webkit-box-shadow: 0px 2px 2px -2px #545454;
+  -moz-box-shadow: 0px 2px 2px -2px #545454;
+  box-shadow: 0px 2px 2px -2px #545454;
+  border-radius: 2px;
+  cursor:pointer;
+  z-index: 200;
+  position: relative;
+  text-decoration: none;
+
+}
+
+.arrow{
+  position: fixed;
+  bottom: -72px;
+  right: 10%;
+  font-size: 200px;
+  color: grey;
+}
+
+
+.arrow-text{
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  top: 122px;
+  left: -22px;
+}
+
+//Arrow Animation/////////////////
+
+
+.animated {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(-5px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+}
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+}
+#animated-example {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: relative;
+  top: 100px;
+  left: 100px;
+  border-radius: 50%;
+}
+hr {
+  position: relative;
+  top: 92px;
+  left: -300px;
+  width: 200px;
+}
+
+
+
+//confetti/////////////////////////
+
+@keyframes confetti-slow {
+  0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+
+  100% { transform: translate3d(25px, 105vh, 0) rotateX(360deg) rotateY(180deg); }
+}
+
+@keyframes confetti-medium {
+  0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+
+  100% { transform: translate3d(100px, 105vh, 0) rotateX(100deg) rotateY(360deg); }
+}
+
+@keyframes confetti-fast {
+  0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+
+  100% { transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg); }
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+//  background: #f0f0f0;
+  background: white;
+}
+
+.confetti-container {
+  perspective: 700px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.confetti {
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  border-radius: 0%;
+
+  &--animation-slow {
+    animation: confetti-slow 2.25s linear 1 forwards;
+  }
+
+  &--animation-medium {
+    animation: confetti-medium 1.75s linear 1 forwards;
+  }
+
+  &--animation-fast {
+    animation: confetti-fast 1.25s linear 1 forwards;
+  }
+}

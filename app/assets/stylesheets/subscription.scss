@@ -7,3 +7,90 @@
   height: 30px;
   background-color: orange;
 }
+
+.column {
+    float: left;
+    position: relative;
+    width: 50%;
+}
+
+.column-offset-1 {
+    left: 25%;
+}
+
+.plan-container{
+  margin: 7vw;
+}
+
+.price-card{
+  background-color: grey;
+  padding: 20px;
+  -webkit-box-shadow: 0px 1.5px 3px 1px #ccc;
+  -moz-box-shadow:    0px 1.5px 3px 1px #ccc;
+  box-shadow:         0px 1.5px 3px 1px #ccc;
+}
+
+.header{
+  font-size: 5vw;
+  color:white;
+  margin: 5px;
+}
+
+.price{
+  font-size: 4vw;
+  color:white;
+  margin: 5px;
+  margin-top: 30px;
+}
+
+.monthly{
+  font-size: 2vw;
+  color:white;
+  margin: 5px;
+}
+
+.purchase-btn{
+  margin: 5px;
+  padding-top: 40px;
+}
+
+.purchase-not-signed-in{
+  background-color: orange;
+  width: 50%;
+  height: 20px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 8px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.purchase-not-signed-in:active{
+  background-color: orange;
+  width: 50%;
+  height: 20px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 8px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.purchase-not-signed-in:hover{
+  background-color: orange;
+  width: 50%;
+  height: 20px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 8px;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.description{
+  color: lightgrey;
+}
