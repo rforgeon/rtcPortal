@@ -1,23 +1,81 @@
 
 <h1> Dashboard </h1>
 
-<h2>Your ID: <%=current_user.id%></h2>
+<%if @customer != nil%>
 
-<h3>Setup</h3>
+  <h2>Your ID: <%=current_user.id%></h2>
 
-<h4>Place the following code before the &lt;/head&gt; tag of each page you want to contain video chat</h4>
+  <h3>Setup</h3>
 
-<div class='code' style='background-color:grey'>
-  <pre>
-    <code style='color:white'>
+  <h4>Place the following code before the &lt;/head&gt; tag of each page you want to contain video chat</h4>
 
-      &lt;link rel=&quot;stylesheet&quot; href=&quot;https://s3-us-west-1.amazonaws.com/browserparty/startparty.css&quot;&gt;
-      &lt;script src=&quot;https://use.fontawesome.com/e7bcebef54.js&quot;&gt;&lt;/script&gt;
-      &lt;script src=&quot;https://simplewebrtc.com/latest-v2.js&quot;&gt;&lt;/script&gt;
-      &lt;script type=&quot;text/javascript&quot; src=&quot;https://s3-us-west-1.amazonaws.com/browserparty/startparty.js&quot;&gt;
-      &lt;/script&gt; &lt;script type=&quot;text/javascript&quot;&gt;
-        SHOPYPARTY.init([&quot;ID&quot;, <span style="color:lightgreen">"<%=current_user.id%>"</span>]);
-      &lt;/script&gt;
-    </code>
-  </pre>
-<div>
+  <div class='code' style='background-color:grey'>
+    <pre>
+      <code style='color:white'>
+
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://s3-us-west-1.amazonaws.com/browserparty/startparty.css&quot;&gt;
+        &lt;script src=&quot;https://use.fontawesome.com/e7bcebef54.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;https://simplewebrtc.com/latest-v2.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://s3-us-west-1.amazonaws.com/browserparty/startparty.js&quot;&gt;
+        &lt;/script&gt; &lt;script type=&quot;text/javascript&quot;&gt;
+          SHOPYPARTY.init([&quot;ID&quot;, <span style="color:lightgreen">"<%=current_user.id%>"</span>]);
+        &lt;/script&gt;
+      </code>
+    </pre>
+  </div>
+
+
+  <div class="main-point ">
+    <a href='mailto:ralphmakerlive@gmail.com?Subject=Dashboard%20Page' style="text-decoration:none;"  target="_blank">
+    <div class="add-btn" style=text-align:center>
+      Contact Browse Party
+    </div>
+  </a>
+  </div>
+
+<%else%>
+
+  <h2>Your ID: Receive an ID when subscribing</h2>
+
+  <h3>Setup</h3>
+
+  <h4>You will place the following code before the &lt;/head&gt; tag of each page you want to contain video chat</h4>
+
+  <h4><span style="color:red">Note:</span> This is example code below. The bellow code will update with runable code once you subscribe.</h4>
+
+  <div class='code' style='background-color:grey'>
+    <pre>
+      <code style='color:white'>
+
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://s3-us-west-1.amazonaws.com/somestylecode.css&quot;&gt;
+        &lt;script src=&quot;https://use.fontawesome.com/.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;https://simplewebrtc.com/latest-v2.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://s3-us-west-1.amazonaws.com/somejscode.js&quot;&gt;
+        &lt;/script&gt; &lt;script type=&quot;text/javascript&quot;&gt;
+          SHOPYPARTY.init([&quot;ID&quot;, <span style="color:lightgreen">"your unique ID"</span>]);
+        &lt;/script&gt;
+      </code>
+    </pre>
+  </div>
+
+
+  <div class="point">
+    <div class="main-point ">
+      <a href='/pricing' style="text-decoration:none;">
+      <div class="add-btn" style=text-align:center>
+        Pricing Page
+      </div>
+    </a>
+    </div>
+    <br>
+    <div class="main-point ">
+      <a href='mailto:ralphmakerlive@gmail.com?Subject=Dashboard%20Page%20Unsubscribed' style="text-decoration:none;"  target="_blank">
+      <div class="add-btn" style=text-align:center>
+        Contact Browse Party
+      </div>
+    </a>
+    </div>
+  </div>
+
+
+<%end%>
