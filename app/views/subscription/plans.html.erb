@@ -28,6 +28,10 @@
 
             <%= form_tag('/subscription_checkout', {method: :post, plan: plan}) do %>
               <input name="plan_id" type="hidden" value="<%= plan[:id] %>"></input>
+              <p>
+                <%= label_tag(:couponCode, 'Coupon:') %>
+                <%= text_field_tag(:couponCode) %>
+              </p>
               <script class="stripe-button"
                       src="https://checkout.stripe.com/checkout.js"
                       data-amount="<%= (plan[:amount]) %>"

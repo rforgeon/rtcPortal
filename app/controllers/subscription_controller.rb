@@ -11,6 +11,25 @@ class SubscriptionController < ApplicationController
   # This is the callback from stripe
   def subscription_checkout
 
+      @code = params[:couponCode]
+
+    if !@code.blank?
+      @discount = @code
+
+      if @discount.nil?
+        flash[:error] = 'Coupon code is not valid or expired.'
+        redirect_to pricing_path
+        return
+      end
+
+      charge_metadata = {
+        :coupon_code => @code,
+        :coupon_discount => (@discount * 100).to_s + "%"
+      }
+    end
+
+    charge_metadata ||= {}
+
     plan_id = params[:plan_id]
     plan = Stripe::Plan.retrieve(plan_id)
     #This should be created on signup.
@@ -26,7 +45,7 @@ class SubscriptionController < ApplicationController
     user.save
 
     # Save this in your DB and associate with the user;s email
-    stripe_subscription = customer.subscriptions.create(:plan => plan.id)
+    stripe_subscription = customer.subscriptions.create(:plan => plan.id, :coupon => @discount)
 
     flash[:notice] = "Successfully Subscribed!"
     redirect_to '/dashboard'
