@@ -192,3 +192,17 @@ hr {
     animation: confetti-fast 1.25s linear 1 forwards;
   }
 }
+
+.mobile_device_500px {
+      font-size: 0px;
+  }
+
+@media screen and (max-width: 500px) {
+
+  .mobile_device_500px{
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+  }
+
+}
